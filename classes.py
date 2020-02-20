@@ -10,7 +10,6 @@
 #/* Requirements and Exports */
 #Fuck this shit
 #var game = require('./catan_js.js');
-
 #import catan_py.py
 
 class Player:
@@ -27,10 +26,10 @@ class Player:
 
   def show_hand(self):
     for i in range(0, len(self.p_hand)):
-      self.p_hand[i].present()
+      print("Resource: " + self.p_hand[i])
 
   def add_card(self, new_card):
-    self.p_hand.push(new_card)
+    self.p_hand.insert(len(self.p_hand), new_card)
   
 	#returns how many victory points a player has
   def show_victory_pts(self):
@@ -39,7 +38,7 @@ class Player:
 '''
 
 class Card {
-  constructor(resource) {
+  def __init__(self) {
     this.resource = resource;
   }
   present() {
@@ -56,6 +55,7 @@ class Board {
     console.log("This board is " + this.size + " tiles large");
   }
 }
+
 
 class Tile {
   constructor(resource, number) {
